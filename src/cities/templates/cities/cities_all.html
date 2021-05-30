@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Список городов
+{% endblock title %}
+
+
+{% block content %}
+
+<h1 class="col-md-8 mx-auto"> Список городов</h1>
+
+<!-------------------------------------------------------------------------------------------->
+<div class="row ">
+    <div class="col-md-8 mx-auto"> <!--col-md-8 - занимаем 8 колонок в окне, mx-auto - выравниваем по центру margin-->
+
+        <table class="table table-striped"> <!--создаем таблицу (есть на бутстрапе)-->
+
+        {% for object in page_obj %}
+
+            <tr><!--строка таблицы-->
+                <td>
+                    <a href="{% url 'cities:detail' pk=object.pk %}"><p>{{object.name}}</p></a>
+                </td><!--ячейки таблицы-->
+
+                <td>
+                    <a href="{% url 'cities:update' pk=object.pk %}">
+                        <button type="submit" class="btn btn-success">Редактировать</button>
+                    </a>
+                </td><!--ячейки таблицы-->
+
+                <td>
+                    <a href="{% url 'cities:delete' pk=object.pk %}">
+                        <button type="submit" class="btn btn-danger">Удалить</button>
+                    </a>
+                </td><!--ячейки таблицы-->
+            </tr>
+
+        {% endfor %}
+
+        </table>
+
+    </div>
+</div>
+<!-------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!-------------------------------------------------------------------------------------------->
+<!-- Пагинация - Джанговская пагинация подлампичена под бутстрап-->
+<div class="col-md-4 mx-auto">
+<nav aria-label="Page navigation example">
+  <ul class="pagination pagination justify-content-center">
+
+    <li class="page-item">
+        {% if page_obj.has_previous %}
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+        {% endif %}
+    </li>
+
+      {% for page in page_obj.paginator.page_range %}
+        <li class="page-item {% if page == page_obj.number %} active {% endif %}" >
+            <a class="page-link" href="?page={{page}}">
+                {{ page }}
+            </a>
+        </li>
+      {% endfor %}
+
+    <li class="page-item">
+        {% if page_obj.has_next %}
+       <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+        {% endif %}
+    </li>
+
+  </ul>
+</nav>
+</div>
+<!-- Пагинация - Джанговская пагинация подлампичена под бутстрап-->
+<!-------------------------------------------------------------------------------------------->
+
+<!-------------------------------------------------------------------------------------------->
+<!-- Форма для ввода города
+    <div class="row">
+        <div class="col-md-8 mx-auto">    раздел который занимает 4 колонки на странице (ограничивает поле до 4х колонок)
+          <form action="" method="post">
+             {% csrf_token %}
+             {{ form.as_p }}
+             <input type="submit" value="Добавить город">
+          </form>
+        </div>
+    </div>-->
+<!-- Форма для ввода города -->
+<!-------------------------------------------------------------------------------------------->
+
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+
+
+<!-------------------------------------------------------------------------------------------->
+<!-- Пагинация - скопировано с документации Джанго (один в один)
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+ Пагинация - скопировано с документации Джанго (один в один) -->
+
+
+{% endblock content %}

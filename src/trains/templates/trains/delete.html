@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Удаление Поезда
+{% endblock title %}
+
+
+{% block content %}
+
+<h1> Удаление поезда</h1>
+
+    <p>Вы уверены что хотите удалить "{{ object }}" из списка поездов?</p>
+
+    {% include 'form.html' with button='Удалить' %}
+
+{% endblock content %}

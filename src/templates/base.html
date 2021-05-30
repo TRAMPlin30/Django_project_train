@@ -1,4 +1,14 @@
+
+
+
 <!doctype html>
+
+{% url 'cities:cities_all' as page_cities_all %} <!-- определяем переменную page_cities_all (называем ею путь в урле) -->
+{% url 'trains:trains_all' as page_trains_all %}
+{% url 'trains:create' as page_create_trains %}
+{% url 'cities:create' as page_create_cities %}
+
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -16,29 +26,58 @@
   <!-- начало кода навигационной панели взятой из BOOTSTRAP-->
   <nav class="navbar navbar-expand-lg navbar-light container" style="background-color: #e3f2fd;"> <!--цвет навигационной панели-->
    <div class="container-fluid">                   <!--контейнер делит екран на три части и устанавливает панель по средине в среднюю часть-->
-     <a class="navbar-brand" href="#">Navbar</a>
+     <a class="navbar-brand" href="{% url 'routes_all'%}">Поиск маршрутов</a>
      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
        <span class="navbar-toggler-icon"></span>
      </button>
      <div class="collapse navbar-collapse" id="navbarNavDropdown">
        <ul class="navbar-nav">
-         <li class="nav-item">
-           <a class="nav-link active" aria-current="page" href="#">Home</a>
+           <!-- если метод запроса request.path совпадает с переменной, которая указывает на путь к данной странице
+                                        то мы её подсвечиваем классом active (данный клас будет работать только если мы будем находиться в том разделе нашего сайта который
+                                        совпадает с урлом указанным в переменной page_cities_all выше-->
+         <li class="nav-item {% if request.path == page_cities_all %} active {% endif %}">
+           <a class="nav-link active" aria-current="page" href="{% url 'cities:cities_all'%}">Города</a>
+         </li>
+
+         <li class="nav-item {% if request.path == page_trains_all %} active {% endif %}">
+           <a class="nav-link active" aria-current="page" href="{% url 'trains:trains_all'%}">Поезда</a>
          </li>
          <li class="nav-item">
-           <a class="nav-link" href="#">Features</a>
+           <a class="nav-link" href="{% url 'list_route'%}">Маршруты</a>
          </li>
-         <li class="nav-item">
-           <a class="nav-link" href="#">Pricing</a>
-         </li>
+
+
+           <!------------------------------отображение Аутентификации на навбаре---------------------------------->
+             {% if user.is_authenticated %}
+               <li class="nav-item">
+                 <a class="nav-link" href="{% url 'accounts:logout'%}">Выйти</a></li>
+             {% else %}
+             <li class="nav-item">
+                 <a class="nav-link" href="{% url 'accounts:login'%}">Войти</a></li>
+             <li class="nav-item">
+                 <a class="nav-link" href="{% url 'accounts:registration'%}">Регистрация</a></li>
+             {% endif %}
+
+
+
+           <!------------------------------отображение Аутентификации на навбаре---------------------------------->
+
+
          <li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
+
+           <a class="nav-link dropdown-toggle {% if request.path == page_create_cities or request.path == page_create_trains %} active {% endif %}" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Добавить
            </a>
            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-             <li><a class="dropdown-item" href="#">Action</a></li>
-             <li><a class="dropdown-item" href="#">Another action</a></li>
-             <li><a class="dropdown-item" href="#">Something else here</a></li>
+
+             <li>
+                 <a class="dropdown-item" href="{% url 'cities:create' %}">Новый город</a></li>
+
+             <li>
+                 <a class="dropdown-item" href="{% url 'trains:create' %}">Новый поезд</a></li>
+
+
+
            </ul>
          </li>
        </ul>
@@ -46,7 +85,50 @@
    </div>
  </nav>
   <!-- конец кода навигационной панели взятой из BOOTSTRAP-->
+
   <!------------------------------------------------------------------------------------------------------>
+
+  <!-- сообщение пользователю о его действиях (взято из документации Django-->
+  <p></p>
+  <p></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+
+       {% if messages %}
+
+            {% for message in messages %}
+
+               {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      {{ message }}
+                         <!--кнопочка с крестиком (для закрытия сообщения)-->
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                  </div>
+
+               {% else %}
+
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      {{ message }}
+                          <!--кнопочка с крестиком (для закрытия сообщения)-->
+                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                  </div>
+               {% endif %}
+
+            {% endfor %}
+
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+<!-- конец раздела сообщение пользователю о его действиях (взято из документации Django-->
+  <!------------------------------------------------------------------------------------------------------>
+
+
 
    <div class="container">
      <h1>

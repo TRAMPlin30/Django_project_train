@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Список поездов
+{% endblock title %}
+
+
+{% block content %}
+
+<h1 class="col-md-8 mx-auto"> Список поездов</h1>
+
+<!-------------------------------------------------------------------------------------------->
+<div class="row ">
+    <div class="col-md-8 mx-auto"> <!--col-md-8 - занимаем 8 колонок в окне, mx-auto - выравниваем по центру margin-->
+
+        <table class="table table-striped"> <!--создаем таблицу (есть на бутстрапе)-->
+
+            <tr>
+                <th>Номер</th>
+                <th>Откуда</th>
+                <th>Куда</th>
+                <th>Время в пути</th>
+                <th>Редактировать</th>
+                <th>Удалить</th>
+            </tr>
+
+        {% for object in page_obj %}
+
+            <tr><!--строка таблицы-->
+                <td>
+
+                     <a href="{% url 'trains:detail' pk=object.pk %}"><p>{{object.name}}</p></a>
+
+                    <!--{{object.name}}-->
+
+                </td><!--ячейки таблицы-->
+
+                <td>{{ object.from_city }}</td>
+                <td>{{ object.to_city }}</td>
+                <td>{{ object.travel_time }}</td>
+
+                <td>
+                    <a href="{% url 'trains:update' pk=object.pk %}">
+                    <button type="submit" class="btn btn-success">Редактировать</button>
+                    </a>
+                </td>
+
+                <td>
+                    <a href="{% url 'trains:delete' pk=object.pk %}">
+                        <button type="submit" class="btn btn-danger">Удалить</button>
+                    </a>
+                </td>
+
+        {% endfor %}
+
+        </table>
+
+    </div>
+</div>
+<!-------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!-------------------------------------------------------------------------------------------->
+<!-- Пагинация - Джанговская пагинация подлампичена под бутстрап-->
+<div class="col-md-4 mx-auto">
+<nav aria-label="Page navigation example">
+  <ul class="pagination pagination justify-content-center">
+
+    <li class="page-item">
+        {% if page_obj.has_previous %}
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+        {% endif %}
+    </li>
+
+      {% for page in page_obj.paginator.page_range %}
+        <li class="page-item {% if page == page_obj.number %} active {% endif %}" >
+            <a class="page-link" href="?page={{page}}">
+                {{ page }}
+            </a>
+        </li>
+      {% endfor %}
+
+    <li class="page-item">
+        {% if page_obj.has_next %}
+       <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+        {% endif %}
+    </li>
+
+  </ul>
+</nav>
+</div>
+<!-- Пагинация - Джанговская пагинация подлампичена под бутстрап-->
+<!-------------------------------------------------------------------------------------------->
+
+{% endblock content %}

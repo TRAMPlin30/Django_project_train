@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Сохранение маршрута
+{% endblock title %}
+
+
+{% block content %}
+
+<h1> Сохранение маршрута</h1>
+
+
+    {% url 'save_route' as action %}
+    {% include 'form.html' with button='Сoхранить' action=action %}
+
+
+{% endblock content %}
