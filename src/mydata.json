@@ -3,77 +3,77 @@
   "model": "cities.city",
   "pk": 23,
   "fields": {
-    "name": "Варшава"
+    "name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"
   }
 },
 {
   "model": "cities.city",
   "pk": 24,
   "fields": {
-    "name": "Мадрид"
+    "name": "пїЅпїЅпїЅпїЅпїЅпїЅ"
   }
 },
 {
   "model": "cities.city",
   "pk": 26,
   "fields": {
-    "name": "Лондон"
+    "name": "пїЅпїЅпїЅпїЅпїЅпїЅ"
   }
 },
 {
   "model": "cities.city",
   "pk": 27,
   "fields": {
-    "name": "Париж"
+    "name": "пїЅпїЅпїЅпїЅпїЅ"
   }
 },
 {
   "model": "cities.city",
   "pk": 28,
   "fields": {
-    "name": "Берлин"
+    "name": "пїЅпїЅпїЅпїЅпїЅпїЅ"
   }
 },
 {
   "model": "cities.city",
   "pk": 31,
   "fields": {
-    "name": "Амстердам"
+    "name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"
   }
 },
 {
   "model": "cities.city",
   "pk": 32,
   "fields": {
-    "name": "Вашингтон"
+    "name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"
   }
 },
 {
   "model": "cities.city",
   "pk": 34,
   "fields": {
-    "name": "Рим"
+    "name": "пїЅпїЅпїЅ"
   }
 },
 {
   "model": "cities.city",
   "pk": 35,
   "fields": {
-    "name": "Стамбул"
+    "name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"
   }
 },
 {
   "model": "cities.city",
   "pk": 36,
   "fields": {
-    "name": "Илинойс"
+    "name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"
   }
 },
 {
   "model": "routes.route",
   "pk": 2,
   "fields": {
-    "name": "Маршрут № 2",
+    "name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ 2",
     "travel_time": 150,
     "from_city": 32,
     "to_city": 26,
@@ -86,7 +86,7 @@
   "model": "routes.route",
   "pk": 3,
   "fields": {
-    "name": "Маршрут № 3",
+    "name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ 3",
     "travel_time": 25,
     "from_city": 31,
     "to_city": 26,
@@ -99,7 +99,7 @@
   "model": "routes.route",
   "pk": 4,
   "fields": {
-    "name": "Маршрут № 1",
+    "name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ 1",
     "travel_time": 26,
     "from_city": 31,
     "to_city": 23,
@@ -110,7 +110,7 @@
   "model": "trains.train",
   "pk": 1,
   "fields": {
-    "name": "Поезд № 1",
+    "name": "пїЅпїЅпїЅпїЅпїЅ пїЅ 1",
     "travel_time": 4,
     "from_city": 26,
     "to_city": 24
@@ -120,7 +120,7 @@
   "model": "trains.train",
   "pk": 6,
   "fields": {
-    "name": "Поезд № 2",
+    "name": "пїЅпїЅпїЅпїЅпїЅ пїЅ 2",
     "travel_time": 4,
     "from_city": 31,
     "to_city": 27
@@ -130,7 +130,7 @@
   "model": "trains.train",
   "pk": 9,
   "fields": {
-    "name": "Поезд № 3",
+    "name": "пїЅпїЅпїЅпїЅпїЅ пїЅ 3",
     "travel_time": 50,
     "from_city": 32,
     "to_city": 34
@@ -140,7 +140,7 @@
   "model": "trains.train",
   "pk": 10,
   "fields": {
-    "name": "Поезд № 4",
+    "name": "пїЅпїЅпїЅпїЅпїЅ пїЅ 4",
     "travel_time": 100,
     "from_city": 34,
     "to_city": 26
@@ -150,7 +150,7 @@
   "model": "trains.train",
   "pk": 11,
   "fields": {
-    "name": "Поезд № 5",
+    "name": "пїЅпїЅпїЅпїЅпїЅ пїЅ 5",
     "travel_time": 25,
     "from_city": 32,
     "to_city": 26
@@ -160,7 +160,7 @@
   "model": "trains.train",
   "pk": 12,
   "fields": {
-    "name": "Поезд № 6",
+    "name": "пїЅпїЅпїЅпїЅпїЅ пїЅ 6",
     "travel_time": 50,
     "from_city": 31,
     "to_city": 28
@@ -170,7 +170,7 @@
   "model": "trains.train",
   "pk": 13,
   "fields": {
-    "name": "Поезд № 7",
+    "name": "пїЅпїЅпїЅпїЅпїЅ пїЅ 7",
     "travel_time": 26,
     "from_city": 31,
     "to_city": 23
