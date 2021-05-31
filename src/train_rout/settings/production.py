@@ -17,7 +17,7 @@ DB_NAME = os.environ.get('DB_NAME')
 DB_PASSWORD = os.environ.get('DB_PASSWORD')
 DB_HOST = os.environ.get('DB_HOST')
 DB_USER = os.environ.get('DB_USER')
-#SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 
@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent   # BASE_DIR - обье
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'g56=0pj=-c%be+r^ok9+v#plw%6b3lbjdx06q#we*il&@+2wkd'
+#SECRET_KEY = 'g56=0pj=-c%be+r^ok9+v#plw%6b3lbjdx06q#we*il&@+2wkd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
