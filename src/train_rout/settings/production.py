@@ -35,7 +35,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent   # BASE_DIR - обье
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['train-rout.herokuapp.com']
 
 
 # Application definition
