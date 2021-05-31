@@ -1,1 +1,0 @@
-web: gunicorn train_rout.wsgi --log-file -
